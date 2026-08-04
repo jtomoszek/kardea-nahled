@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>Kardiologie Ostrava bez čekání | MUDr. Jan Pavlas</title>
+<meta name="description" content="Kardiologie Ostrava MUDr. Jan Pavlas – odborné vyšetření srdce, EKG, Holter i echo bez dlouhého čekání. Objednejte se do ambulance Kardea." />
+<!-- NÁHLED PRO KLIENTA — nesmí se indexovat, aby nevznikla duplicita s živým webem.
+     Na ostré doméně tento řádek nahraďte za: <meta name="robots" content="index, follow" /> -->
+<meta name="robots" content="noindex, nofollow" />
+
+<!-- TODO: po nasazení doplnit finální doménu -->
+<!-- <link rel="canonical" href="https://VASE-DOMENA.cz/" /> -->
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="cs_CZ" />
+<meta property="og:title" content="Kardiologie Ostrava bez čekání | MUDr. Jan Pavlas" />
+<meta property="og:description" content="Špičková kardiologická ambulance bez čekání, založená na empatii a moderní diagnostice." />
+<meta property="og:image" content="assets/doctor-hero.webp" />
+
+<link rel="icon" href="assets/favicon-32.webp" sizes="32x32" />
+<link rel="apple-touch-icon" href="assets/favicon-192.webp" />
+
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- ========================== ÚVODNÍ VRSTVA (načtení stránky) ===== -->
+<div class="intro" id="intro" role="presentation">
+  <div>
+    <p class="intro__text" id="introText">Jsme vaše srdeční záležitost</p>
+    <div class="intro__rule"></div>
+  </div>
+</div>
+
+<!-- ===================================================== NAVIGACE ===== -->
+<div class="nav-wrap" id="navWrap">
+  <nav class="nav" aria-label="Hlavní navigace">
+    <div class="nav__pill nav__brand">
+      <a href="#top" aria-label="Kardea — úvod"><img src="assets/logo.webp" alt="Kardea" width="116" /></a>
+    </div>
+
+    <div class="nav__pill nav__links">
+      <a href="#lekar">Lékař</a>
+      <a href="#sluzby">Služby</a>
+      <a href="#prubeh">Jak to probíhá</a>
+      <a href="#predpis">Předpis léku</a>
+      <a href="#faq">Dotazy</a>
+      <a href="#kontakt">Kontakt</a>
+    </div>
+
+    <div class="nav__cta">
+      <a class="nav__tel" href="tel:+420606727444">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .3 1.9.6 2.8a2 2 0 0 1-.5 2.1L8.1 9.8a16 16 0 0 0 6 6l1.2-1.1a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.8.6a2 2 0 0 1 1.7 2z"/></svg>
+        606 727 444
+      </a>
+      <a class="btn btn--primary" href="#kontakt">Objednat vyšetření</a>
+      <button class="nav__burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+</div>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#lekar">Lékař</a>
+  <a href="#sluzby">Služby</a>
+  <a href="#prubeh">Jak to probíhá</a>
+  <a href="#predpis">Předpis léku</a>
+  <a href="#faq">Časté dotazy</a>
+  <a href="#kontakt">Kontakt</a>
+  <a class="btn btn--primary" href="tel:+420606727444">Zavolat 606 727 444</a>
+</div>
+
+<main id="top">
+
+  <!-- ======================================================= HERO ===== -->
+  <section class="hero">
+    <canvas class="dotfield" id="dotfield" aria-hidden="true"></canvas>
+    <div class="shell">
+      <div class="hero__grid">
+        <div>
+          <p class="eyebrow hero__eyebrow">MUDr. Jan Pavlas &nbsp;·&nbsp; Kardiolog</p>
+
+          <h1 class="h-display">
+            Kardiologická<br /><span class="accent">ambulance</span>
+          </h1>
+
+          <p class="lead hero__lead reveal">
+            Špičková <span class="strong-ink">kardiologická ambulance bez čekání</span>
+            (rychlý termín po objednání) založená na empatii a moderní diagnostice.
+            Spolehlivá kardiologie Ostrava.
+          </p>
+
+          <div class="hero__actions reveal">
+            <a class="btn btn--primary" href="#kontakt">
+              Objednat vyšetření
+              <svg class="btn__arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a class="btn btn--ghost" href="#predpis">Požádat o předpis léku</a>
+          </div>
+        </div>
+
+        <!-- =========== animované srdce — vlastní kresba, žlutá paleta =========== -->
+        <div class="hero__media">
+          <div class="heartviz">
+            <svg viewBox="0 0 600 600" role="img" aria-label="Ilustrace srdce propojeného sítí diagnostických dat">
+              <defs>
+                <linearGradient id="gHeart" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%"   stop-color="#f7dd82"/>
+                  <stop offset="45%"  stop-color="#f1cb45"/>
+                  <stop offset="100%" stop-color="#c99f14"/>
+                </linearGradient>
+                <linearGradient id="gHeartEdge" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%"   stop-color="#e3b92b"/>
+                  <stop offset="100%" stop-color="#a8830c"/>
+                </linearGradient>
+                <radialGradient id="gGlow">
+                  <stop offset="0%"   stop-color="#f1cb45" stop-opacity=".38"/>
+                  <stop offset="100%" stop-color="#f1cb45" stop-opacity="0"/>
+                </radialGradient>
+                <filter id="fHeartShadow" x="-30%" y="-30%" width="160%" height="160%">
+                  <feDropShadow dx="0" dy="14" stdDeviation="16"
+                                flood-color="#7a5f08" flood-opacity=".28"/>
+                </filter>
+              </defs>
+
+              <circle cx="300" cy="330" r="235" fill="url(#gGlow)"/>
+
+              <g class="hv-scene">
+
+                <!-- ---------------- síť uzlů a spojnic ---------------- -->
+                <g class="hv-net" stroke="#c9a63a" stroke-opacity=".5" fill="none" stroke-width="1.1">
+                  <path d="M96 214 L168 168 L262 150 L344 128"/>
+                  <path d="M96 214 L120 300 L92 384"/>
+                  <path d="M120 300 L196 322 L168 168"/>
+                  <path d="M92 384 L176 430 L262 470"/>
+                  <path d="M176 430 L196 322"/>
+                  <path d="M262 470 L360 496 L448 452"/>
+                  <path d="M448 452 L492 372 L512 286"/>
+                  <path d="M512 286 L470 210 L396 166"/>
+                  <path d="M396 166 L344 128"/>
+                  <path d="M470 210 L520 158"/>
+                  <path d="M492 372 L556 344"/>
+                </g>
+                <g class="hv-net" fill="#d8b23a">
+                  <circle class="hv-node" cx="96"  cy="214" r="5"   style="animation-delay:0s"/>
+                  <circle class="hv-node" cx="168" cy="168" r="3.5" style="animation-delay:.4s"/>
+                  <circle class="hv-node" cx="262" cy="150" r="6"   style="animation-delay:.9s"/>
+                  <circle class="hv-node" cx="344" cy="128" r="4"   style="animation-delay:1.4s"/>
+                  <circle class="hv-node" cx="120" cy="300" r="4.5" style="animation-delay:.6s"/>
+                  <circle class="hv-node" cx="92"  cy="384" r="5.5" style="animation-delay:1.1s"/>
+                  <circle class="hv-node" cx="196" cy="322" r="3.5" style="animation-delay:1.8s"/>
+                  <circle class="hv-node" cx="176" cy="430" r="4"   style="animation-delay:.3s"/>
+                  <circle class="hv-node" cx="262" cy="470" r="5"   style="animation-delay:2.1s"/>
+                  <circle class="hv-node" cx="360" cy="496" r="3.5" style="animation-delay:1.2s"/>
+                  <circle class="hv-node" cx="448" cy="452" r="5.5" style="animation-delay:.8s"/>
+                  <circle class="hv-node" cx="492" cy="372" r="4"   style="animation-delay:1.6s"/>
+                  <circle class="hv-node" cx="512" cy="286" r="5"   style="animation-delay:.2s"/>
+                  <circle class="hv-node" cx="470" cy="210" r="3.5" style="animation-delay:2.3s"/>
+                  <circle class="hv-node" cx="396" cy="166" r="4.5" style="animation-delay:1s"/>
+                  <circle class="hv-node" cx="520" cy="158" r="3"   style="animation-delay:1.9s"/>
+                  <circle class="hv-node" cx="556" cy="344" r="3"   style="animation-delay:.5s"/>
+                </g>
+
+                <!-- ---------------- molekula vpravo nahoře ---------------- -->
+                <g class="hv-mol" stroke="#b8912a" fill="none" stroke-width="1.6">
+                  <path d="M424 110 l28 -16 l28 16 l0 33 l-28 16 l-28 -16 Z"/>
+                  <path d="M480 110 l28 -16 l28 16 l0 33 l-28 16 l-28 -16 Z"/>
+                  <path d="M452 159 l0 28"/>
+                  <path d="M536 110 l26 -15"/>
+                  <g fill="#e3b92b" stroke="none">
+                    <circle cx="424" cy="110" r="4.5"/>
+                    <circle cx="452" cy="94"  r="4.5"/>
+                    <circle cx="480" cy="110" r="4.5"/>
+                    <circle cx="480" cy="143" r="4.5"/>
+                    <circle cx="452" cy="159" r="4.5"/>
+                    <circle cx="424" cy="143" r="4.5"/>
+                    <circle cx="508" cy="94"  r="4.5"/>
+                    <circle cx="536" cy="110" r="4.5"/>
+                    <circle cx="536" cy="143" r="4.5"/>
+                    <circle cx="508" cy="159" r="4.5"/>
+                    <circle cx="452" cy="187" r="5.5"/>
+                    <circle cx="562" cy="95"  r="5.5"/>
+                  </g>
+                </g>
+
+                <!-- ---------------- pacienti + tepová křivka vlevo dole ---------------- -->
+                <g class="hv-helix" stroke="#c9a63a" fill="none" stroke-width="1.6">
+                  <g>
+                    <circle cx="108" cy="486" r="9"/>
+                    <path d="M92 522 C 92 500, 124 500, 124 522"/>
+                  </g>
+                  <g>
+                    <circle cx="150" cy="486" r="9"/>
+                    <path d="M134 522 C 134 500, 166 500, 166 522"/>
+                  </g>
+                  <g>
+                    <circle cx="192" cy="486" r="9"/>
+                    <path d="M176 522 C 176 500, 208 500, 208 522"/>
+                  </g>
+                  <path d="M84 552 L112 552 L122 532 L136 574 L148 546 L158 562 L168 552 L216 552"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".85"/>
+                </g>
+
+                <!-- ---------------- přerušovaná dráha ---------------- -->
+                <path class="hv-dash" d="M196 226 C 128 286, 152 402, 258 442 C 368 484, 476 416, 494 320"
+                      stroke="#8a6d10" stroke-opacity=".5" fill="none" stroke-width="1.6"/>
+
+                <!-- ---------------- srdce (dodaná grafika) ---------------- -->
+                <g class="hv-heart">
+                  <image href="assets/heart.webp" x="129" y="61" width="342" height="537"
+                         filter="url(#fHeartShadow)" />
+                </g>
+
+              </g>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================= PÁS DŮVĚRY ===== -->
+  <section class="shell" style="padding-bottom: var(--section-y)">
+    <div class="trust reveal">
+      <div class="trust__item">
+        <span class="mark"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+        <div>
+          <div class="t">Rychlé termíny</div>
+          <div class="s">Objednáme vás bez dlouhého čekání na volný termín.</div>
+        </div>
+      </div>
+      <div class="trust__item">
+        <span class="mark"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 12h4l2 5 4-12 2 7h6"/></svg></span>
+        <div>
+          <div class="t">Moderní diagnostika</div>
+          <div class="s">EKG, Holter i echokardiografie na jednom místě.</div>
+        </div>
+      </div>
+      <div class="trust__item">
+        <span class="mark"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+        <div>
+          <div class="t">Ostrava-jih – Bělský Les</div>
+          <div class="s">Zdeňka Chalabaly 3041/2, Ostrava-jih – Bělský Les.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================ TMAVÉ PÁSMO ===== -->
+  <section class="section band-yellow statement">
+    <div class="shell">
+      <div class="statement__grid">
+        <div class="statement__label">
+          <p class="eyebrow">Základem aktivního života<br />je zdravé srdce</p>
+        </div>
+
+        <div>
+          <p class="statement__quote reveal">
+            Využijte sílu <span class="hl">moderní diagnostiky</span>. Naše kardiologie
+            v Ostravě se postará o detailní monitoring a individuální léčebný plán
+            navržený přímo pro vaše srdce.
+          </p>
+        </div>
+      </div>
+
+      <div class="statement__rule"></div>
+
+      <div class="stats reveal">
+        <div class="stat">
+          <div class="stat__num">5</div>
+          <div class="stat__label">druhů kardiologických vyšetření pod jednou střechou</div>
+        </div>
+        <div class="stat">
+          <div class="stat__num">Po–Pá</div>
+          <div class="stat__label">ordinujeme každý všední den, včetně časných ranních hodin</div>
+        </div>
+        <div class="stat">
+          <div class="stat__num">1<sup>*</sup></div>
+          <div class="stat__label">pracovní den — do té doby odpovídáme na e-mailové dotazy</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== vrstvené boxy: sekce se při scrollu překrývají ===== -->
+  <div class="stack">
+  <!-- ======================================================= LÉKAŘ ===== -->
+  <section class="section stack__panel doctor" id="lekar">
+    <div class="shell">
+      <div class="doctor__grid">
+
+        <!-- portrét na barevném pódiu, podpis se dopisuje přes fotku -->
+        <figure class="doctor__stage reveal">
+          <span class="doctor__ring" aria-hidden="true"></span>
+          <img class="doctor__cutout" src="assets/doctor-cutout.webp"
+               alt="MUDr. Jan Pavlas, kardiolog ambulance Kardea" width="1708" height="1434" />
+
+          <span class="doctor__sign" aria-hidden="true">
+            <svg class="sign" viewBox="0 0 1578 2029" preserveAspectRatio="xMidYMid meet">
+              <defs>
+                <clipPath id="signClip">
+                  <path d="M782.346,658.903C780.25,659.242 773.348,661.149 758.042,672.298C708.092,708.682 634.099,793.763 585.63,813.271C580.331,815.404 559.898,823.522 543.491,810.549C524.404,795.457 524.09,762.247 530.483,720.6C533.042,703.926 537.436,684.233 538.137,681.09C544.287,653.522 565.319,557.352 544.19,512.819C537.262,498.218 525.356,487.783 498.8,492.951C421.389,508.017 278.92,644.815 164.113,819.663C81.88,944.903 48.312,1037.09 37.582,1067.841C37.417,1068.314 36.473,1071.02 33.433,1072.523C32.499,1072.985 31.459,1073.281 30.42,1073.355C29.918,1073.39 27.018,1073.595 24.461,1071.338C21.978,1069.148 21.771,1066.315 21.735,1065.825C21.572,1063.593 21.791,1063.6 22.491,1061.474C92.215,849.473 275.309,601.544 410.643,504.91C443.729,481.286 502.999,445.529 545.618,470.447C586.728,494.483 587.424,560.38 583,608.279C579.254,648.837 570.958,685.02 568.161,699.538C566.255,709.431 556.853,757.907 562.683,778.686C562.787,779.056 563.579,781.88 564.538,783.176C566.984,783.214 575.214,781.991 594.852,767.656C640.764,734.143 705.975,661.016 749.482,634.145C770.173,621.367 785.611,619.336 798.782,626.306C803.259,628.675 807.308,631.867 810.991,635.828C963.067,390.297 1090.051,256.073 1121.205,223.528C1170.402,172.133 1285.381,58.858 1377.312,51.061C1380.605,50.782 1401.416,49.096 1405.056,78.333C1410.552,122.476 1375.611,228.103 1326.013,355.468C1316.077,380.982 1315.951,380.928 1306.004,406.439C1305.493,407.749 1299.621,422.808 1299.618,422.813C1299.036,423.717 1298.616,424.749 1297.87,425.523C1297.529,425.877 1295.563,427.918 1292.238,427.995C1291.732,428.007 1288.806,428.074 1286.333,425.693C1283.937,423.386 1283.872,420.553 1283.86,420.061C1283.836,418.986 1284.092,417.911 1284.408,416.883C1284.729,415.841 1292.433,397.005 1310.248,349.446C1335.909,280.942 1389.101,135.454 1384.979,83.904C1384.909,83.029 1384.317,74.901 1381.639,72.245L1381.638,72.246C1381.143,71.852 1381.01,71.572 1375.138,72.383C1261.174,88.111 1067.498,291.245 884.994,574.147C876.076,587.971 855.512,619.779 828.1,665.39C839.506,695.016 845.944,738 853.095,789.41C861.013,846.328 870.623,919.179 891.372,943.12C894.416,946.632 896.828,947.965 900.553,949.747C920.36,959.221 935.642,951.568 963.455,928.22C987.8,907.782 1021.348,875.444 1067.103,856.062C1150.998,820.522 1180.411,875.84 1188.126,892.433C1229.095,980.552 1190.318,1179.434 1121.404,1365.519C1077.511,1484.039 1033.433,1566.789 1013.88,1602.389C992.346,1641.595 961.882,1692.935 922.601,1744.998C830.007,1867.726 758.271,1895.125 725.378,1903.526C672.222,1917.102 634.587,1901.104 616.5,1892.924C462.907,1823.462 423.616,1634.548 489.921,1359.248C516.138,1250.393 552.856,1152.871 576.557,1093.817C588.371,1064.38 615.827,997.031 662.149,902.949C671.716,883.52 684.359,859.113 686.325,855.319C714.536,800.86 748.371,739.148 790.281,669.7C789.435,668.041 788.567,666.504 787.675,665.097C785.286,661.327 783.409,659.64 782.346,658.903ZM802.818,708.147C784.784,739.146 764.895,774.42 744.099,813.142C734.483,831.049 712.058,872.959 680.999,936.731C673.44,952.253 632.297,1036.436 593.371,1134.995C533.456,1286.693 511.294,1388.088 502.785,1431.077C472.094,1586.129 469.679,1763.919 586.404,1849.561C589.313,1851.696 608.469,1866.073 636.961,1877.604C676.05,1893.423 736.125,1897.118 817.688,1828.957C838.29,1811.739 856.951,1791.736 860.16,1788.297C900.25,1745.323 930.159,1700.386 941.01,1683.899C987.512,1613.246 1020.104,1545.585 1033.498,1517.156C1099.879,1376.26 1143.742,1232.413 1163.506,1121.984C1188.659,981.445 1175.444,893.783 1135.164,878.067C1128.243,875.367 1106.84,868.354 1061.23,894.005C998.864,929.08 967.643,985.468 918.445,987.411C912.557,987.644 898.276,987.57 880.159,977.562C843.169,957.131 831.382,886.895 818.7,801.326C814.11,770.354 809.248,735.863 802.818,708.147Z"/>
+                </clipPath>
+              </defs>
+              <!-- ořez sedí na skupině, aby se pero uvnitř mohlo posouvat
+                   a tvar podpisu přitom zůstal na místě -->
+              <g clip-path="url(#signClip)">
+                <rect class="sign__ink" x="0" y="0" width="1578" height="2029" fill="#fff"/>
+              </g>
+            </svg>
+          </span>
+
+          <figcaption class="doctor__tag">
+            <span class="n">MUDr. Jan Pavlas</span>
+            <span class="r">Kardiolog</span>
+          </figcaption>
+        </figure>
+
+        <div class="doctor__body">
+          <p class="eyebrow">Váš kardiolog v Ostravě</p>
+          <h2 class="h-xl reveal">Srdce v rukou odborníka</h2>
+          <p class="lead reveal">
+            V ambulanci Kardea se vám bude věnovat MUDr. Jan Pavlas. Naše kardiologie
+            spojuje odborné zkušenosti, moderní diagnostiku a lidský přístup, díky
+            kterému přesně víte, co se děje s vaším srdcem a jaké kroky dávají smysl.
+          </p>
+
+          <div class="doctor__quals reveal">
+            <div class="doctor__qual">
+              <span class="mark"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>
+              Komplexní vyšetření kardiovaskulárního systému
+            </div>
+            <div class="doctor__qual">
+              <span class="mark"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>
+              Důraz na prevenci civilizačních chorob
+            </div>
+            <div class="doctor__qual">
+              <span class="mark"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>
+              Péče podložená daty a špičkovou medicínskou praxí
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================== SLUŽBY — vrstvené karty ===== -->
+  <section class="section stack__panel" id="sluzby">
+    <div class="shell">
+      <div class="svc">
+
+        <!-- levý sloupec zůstává ukotvený, dokud vpravo jedou karty -->
+        <div class="svc__intro">
+          <p class="eyebrow">Naše služby</p>
+          <h2 class="h-xl">Standard péče, který si zasloužíte</h2>
+          <p class="lead">
+            Naše kardiologie Ostrava poskytuje základní i specializovaná vyšetření srdce
+            včetně EKG, Holteru, echokardiografie a předoperačního vyšetření.
+          </p>
+        </div>
+
+        <!-- karty se při scrollu skládají jedna na druhou -->
+        <div class="svc__cards">
+          <article class="svc__card" style="--i: 0">
+            <span class="svc__no">01</span>
+            <h3>Echokardiografie</h3>
+            <p>Ultrazvukové vyšetření srdce, které pomáhá zhodnotit velikost srdečních oddílů, funkci srdce, stav chlopní a případné strukturální změny. Echokardiografie je nebolestivé a neinvazivní vyšetření, které poskytuje důležité informace pro další léčbu.</p>
+          </article>
+
+          <article class="svc__card" style="--i: 1">
+            <span class="svc__no">02</span>
+            <h3>EKG Holter</h3>
+            <p>Dlouhodobé monitorování srdečního rytmu během běžného dne. EKG Holter pomáhá odhalit nepravidelný tep, arytmie, bušení srdce nebo potíže, které se při krátkém EKG vyšetření nemusí projevit.</p>
+          </article>
+
+          <article class="svc__card" style="--i: 2">
+            <span class="svc__no">03</span>
+            <h3>Tlakový Holter</h3>
+            <p>Celodenní sledování krevního tlaku v přirozeném režimu pacienta. Tlakový Holter ukáže, jak se tlak mění během dne, při zátěži, odpočinku i v noci, a pomáhá správně nastavit léčbu vysokého krevního tlaku.</p>
+          </article>
+
+          <article class="svc__card" style="--i: 3">
+            <span class="svc__no">04</span>
+            <h3>Předoperační vyšetření</h3>
+            <p>Komplexní předoperační vyšetření před plánovaným zákrokem. Zhodnotíme aktuální zdravotní stav, provedeme potřebná kardiologická vyšetření a připravíme podklady pro bezpečný průběh operace.</p>
+          </article>
+
+          <article class="svc__card" style="--i: 4">
+            <span class="svc__no">05</span>
+            <h3>Samostatné EKG</h3>
+            <p>Rychlé a základní vyšetření elektrické aktivity srdce. EKG pomáhá odhalit poruchy rytmu, známky přetížení srdce nebo jiné změny, které mohou souviset s bolestí na hrudi, dušností či nepravidelným tepem.</p>
+          </article>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================== VÝHODY ===== -->
+  <section class="section stack__panel">
+    <div class="shell">
+      <div class="why__head">
+        <div>
+          <p class="eyebrow">Proč si vybrat ordinaci Kardea</p>
+          <h2 class="h-xl reveal" style="margin-top: 22px">Hledáte kardiologii v Ostravě, kde vám opravdu naslouchají?</h2>
+        </div>
+        <div>
+          <p class="lead reveal">
+            Naše kardiologie Ostrava nabízí moderní diagnostiku, osobní přístup a péči,
+            která začíná důkladným rozhovorem. Nečekejte na varovné signály.
+            Využijte možnost objednat se na odborné vyšetření srdce.
+          </p>
+          <a class="btn btn--ink reveal" style="margin-top: 26px" href="#kontakt">
+            Objednat návštěvu
+            <svg class="btn__arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="why__list">
+        <div class="why__item reveal">
+          <div class="why__num">01</div>
+          <h3>Špičková technologie</h3>
+          <p>Diagnostické přístroje, které odhalí i změny, jež se při běžném vyšetření neprojeví.</p>
+        </div>
+        <div class="why__item reveal">
+          <div class="why__num">02</div>
+          <h3>Moderní ambulance v Ostravě</h3>
+          <p>Příjemné a klidné prostředí ambulance v Ostravě-jihu, Bělském Lese.</p>
+        </div>
+        <div class="why__item reveal">
+          <div class="why__num">03</div>
+          <h3>Osobní přístup lékaře</h3>
+          <p>Každé vyšetření začíná rozhovorem. Váš příběh je stejně důležitý jako naměřená data.</p>
+        </div>
+        <div class="why__item reveal">
+          <div class="why__num">04</div>
+          <h3>Jasné vysvětlení výsledků</h3>
+          <p>Srozumitelně vám popíšeme, co nálezy znamenají a co z nich pro vás plyne.</p>
+        </div>
+        <div class="why__item reveal">
+          <div class="why__num">05</div>
+          <h3>Rychlé termíny vyšetření</h3>
+          <p>Objednáme vás bez zbytečného odkládání — na srdce se nečeká měsíce.</p>
+        </div>
+        <div class="why__item reveal">
+          <div class="why__num">06</div>
+          <h3>Návrh konkrétního léčebného postupu</h3>
+          <p>Odcházíte s plánem na míru, ne s obecným doporučením.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================== JAK TO PROBÍHÁ ===== -->
+  <section class="section stack__panel" id="prubeh">
+    <div class="shell">
+      <p class="eyebrow">Jak to probíhá</p>
+      <h2 class="h-xl reveal" style="max-width: 14em; margin-top: 22px">Od telefonu k jasnému plánu pro vaše srdce</h2>
+
+      <div class="steps__grid" style="--line-dark: var(--line)">
+        <div class="step reveal">
+          <div class="step__no" style="color: var(--yellow-dark)">01 / 03</div>
+          <h3>Objednáte se</h3>
+          <p style="color: var(--muted)">Zavoláte do ordinace nebo napíšete e-mail. Domluvíme termín, který vám vyhovuje, a řekneme, co si vzít s sebou.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step__no" style="color: var(--yellow-dark)">02 / 03</div>
+          <h3>Vyšetříme vaše srdce</h3>
+          <p style="color: var(--muted)">Začínáme důkladným rozhovorem o vašich potížích. Podle toho zvolíme vyšetření — EKG, Holter nebo echokardiografii.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step__no" style="color: var(--yellow-dark)">03 / 03</div>
+          <h3>Vysvětlíme výsledky</h3>
+          <p style="color: var(--muted)">Výsledky s vámi projdeme srozumitelně a bez odborného žargonu. Odcházíte s konkrétním léčebným postupem a jasnými dalšími kroky.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================== ŽÁDOST O PŘEDPIS LÉKU ===== -->
+  <section class="section stack__panel" id="predpis">
+    <div class="shell">
+      <div class="rx__grid">
+        <div class="rx__intro">
+          <p class="eyebrow">Předpis léku</p>
+          <h2 class="h-xl reveal">Potřebujete jen recept? Nemusíte do ordinace.</h2>
+          <p class="lead reveal">
+            Pokud u nás máte zavedenou léčbu a docházejí vám léky, požádejte o předpis
+            online. Vyplňte formulář a my vám recept připravíme — o vystavení vás
+            informujeme telefonicky nebo e-mailem.
+          </p>
+
+          <div class="rx__points reveal">
+            <div class="rx__point">
+              <span class="mark"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>
+              Žádost vyřizujeme v ordinačních hodinách, zpravidla do jednoho pracovního dne.
+            </div>
+            <div class="rx__point">
+              <span class="mark"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>
+              Recept vystavujeme elektronicky — kód vám pošleme, léky vyzvednete v kterékoli lékárně.
+            </div>
+            <div class="rx__point">
+              <span class="mark"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 8v5M12 16.5v.5"/><circle cx="12" cy="12" r="9"/></svg></span>
+              Formulář slouží pouze pro opakovaný předpis již nasazené léčby, ne pro akutní potíže.
+            </div>
+          </div>
+        </div>
+
+        <!-- formulář -->
+        <div class="rx__card reveal">
+          <h3>Žádost o předpis léku</h3>
+          <p class="hint">Pole označená <span style="color:var(--yellow-dark)">*</span> jsou povinná.</p>
+
+          <!--
+            TODO — napojení na backend:
+            Doplňte do <form> atribut data-endpoint="https://…" (URL, která přijme JSON POST).
+            Dokud je prázdný, formulář otevře předvyplněný e-mail v poštovním klientovi.
+          -->
+          <form id="rxForm" novalidate data-endpoint="">
+            <div class="field">
+              <label for="rxName">Jméno a příjmení <span class="req">*</span></label>
+              <input type="text" id="rxName" name="jmeno" autocomplete="name" placeholder="Jan Novák" required />
+              <span class="err">Vyplňte prosím jméno a příjmení.</span>
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="rxDate">Datum <span class="req">*</span></label>
+                <input type="date" id="rxDate" name="datum" required />
+                <span class="err">Vyberte prosím datum.</span>
+              </div>
+              <div class="field">
+                <label for="rxPhone">Telefon <span class="req">*</span></label>
+                <input type="tel" id="rxPhone" name="telefon" autocomplete="tel" placeholder="+420 000 000 000" required />
+                <span class="err">Zadejte prosím platné telefonní číslo.</span>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="rxEmail">E-mail <span class="req">*</span></label>
+              <input type="email" id="rxEmail" name="email" autocomplete="email" placeholder="jan.novak@email.cz" required />
+              <span class="err">Zadejte prosím platnou e-mailovou adresu.</span>
+            </div>
+
+            <div class="field">
+              <label for="rxDrug">Název léku <span class="req">*</span></label>
+              <input type="text" id="rxDrug" name="lek" placeholder="Např. Concor 5 mg" required />
+              <span class="err">Uveďte prosím název léku.</span>
+            </div>
+
+            <div class="consent" id="rxConsentWrap">
+              <input type="checkbox" id="rxConsent" name="souhlas" required />
+              <label for="rxConsent">
+                Souhlasím se zpracováním uvedených osobních a zdravotních údajů
+                za účelem vystavení receptu. <span class="req">*</span>
+              </label>
+            </div>
+
+            <button type="submit" class="btn btn--primary rx__submit">
+              Odeslat žádost
+              <svg class="btn__arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+
+            <div class="form-status" id="rxStatus" role="status" aria-live="polite"></div>
+
+            <p class="rx__note">
+              Žádost není potvrzením o vystavení receptu. V naléhavých případech
+              volejte <a href="tel:+420606727444" class="strong-ink">606 727 444</a>,
+              při ohrožení života 155.
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  </div>
+
+  <!-- ========================================================= FAQ ===== -->
+  <section class="section" id="faq" style="padding-top: 0">
+    <div class="shell">
+      <div class="faq__grid">
+        <div>
+          <p class="eyebrow">Časté dotazy</p>
+          <h2 class="h-lg reveal" style="margin-top: 22px">Na co se pacienti ptají nejčastěji</h2>
+          <p class="lead reveal" style="margin-top: 18px">
+            Nenašli jste odpověď? Zavolejte nám na
+            <a href="tel:+420606727444" class="strong-ink">606 727 444</a>.
+          </p>
+        </div>
+
+        <div class="faq__list">
+          <div class="faq__item">
+            <button class="faq__q" aria-expanded="false">
+              Potřebuji na vyšetření doporučení od praktického lékaře?
+              <span class="faq__icon" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
+            </button>
+            <div class="faq__a"><p>Ve většině případů ano — doporučení od praktického lékaře nebo jiného specialisty usnadní hrazení výkonu zdravotní pojišťovnou. Pokud si nejste jistí, zavolejte nám a poradíme vám, co je ve vaší situaci potřeba.</p></div>
+          </div>
+
+          <div class="faq__item">
+            <button class="faq__q" aria-expanded="false">
+              Jak dlouho se čeká na termín?
+              <span class="faq__icon" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
+            </button>
+            <div class="faq__a"><p>Objednáváme bez dlouhého čekání — právě rychlý termín po objednání je jedním z důvodů, proč ambulance Kardea vznikla. Konkrétní volný termín vám sdělíme hned při telefonátu.</p></div>
+          </div>
+
+          <div class="faq__item">
+            <button class="faq__q" aria-expanded="false">
+              Jak požádám o předpis léku?
+              <span class="faq__icon" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
+            </button>
+            <div class="faq__a"><p>Použijte <a href="#predpis" class="strong-ink">formulář pro předpis léku</a> výše na této stránce. Vyplňte jméno, datum, kontakt a název léku. Žádost vyřídíme zpravidla do jednoho pracovního dne a recept vystavíme elektronicky. Formulář je určen pro opakovaný předpis již nasazené léčby.</p></div>
+          </div>
+
+          <div class="faq__item">
+            <button class="faq__q" aria-expanded="false">
+              Co si mám vzít s sebou?
+              <span class="faq__icon" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
+            </button>
+            <div class="faq__a"><p>Kartičku pojišťovny, doklad totožnosti, doporučení od lékaře a seznam léků, které užíváte. Pokud máte k dispozici starší kardiologické nálezy nebo výsledky vyšetření, vezměte je také — pomohou nám vidět vývoj v čase.</p></div>
+          </div>
+
+          <div class="faq__item">
+            <button class="faq__q" aria-expanded="false">
+              Jak probíhá vyšetření Holterem?
+              <span class="faq__icon" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
+            </button>
+            <div class="faq__a"><p>V ordinaci vám nasadíme malý přístroj, se kterým strávíte běžný den i noc. Zaznamenává srdeční rytmus nebo krevní tlak v přirozeném režimu, takže zachytí i potíže, které se při krátkém vyšetření v ordinaci neprojeví. Druhý den přístroj vrátíte a my data vyhodnotíme.</p></div>
+          </div>
+
+          <div class="faq__item">
+            <button class="faq__q" aria-expanded="false">
+              Kde přesně ordinace sídlí a kde zaparkuji?
+              <span class="faq__icon" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
+            </button>
+            <div class="faq__a"><p>Najdete nás na adrese Zdeňka Chalabaly 3041/2, 700 30 Ostrava-jih – Bělský Les. Přesnou polohu si můžete prohlédnout v mapě níže v sekci Kontakt.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================== KONTAKT ===== -->
+  <section class="section contact" id="kontakt">
+    <div class="shell">
+      <div class="contact__head">
+        <p class="eyebrow">Kontakt</p>
+        <h2 class="h-xl">Objednejte se na vyšetření</h2>
+      </div>
+
+      <div class="contact__grid">
+
+        <!-- sestra dosedá na spodní hranu sekce, stejně jako lékař výše -->
+        <figure class="contact__person">
+          <img src="assets/nurse.webp" width="1172" height="1444"
+               alt="Monika Vrbková, zdravotní sestra ambulance Kardea" />
+          <figcaption class="contact__tag">
+            <span class="n">Monika Vrbková</span>
+            <span class="r">Zdravotní sestra</span>
+          </figcaption>
+        </figure>
+
+        <div class="contact__body">
+
+          <!-- telefon je hlavní cesta k objednání, proto dominuje -->
+          <p class="contact__label">Objednání telefonem</p>
+          <a class="contact__phone" href="tel:+420606727444">+420 606 727 444</a>
+          <p class="contact__note">Volejte v ordinačních hodinách — termín domluvíme hned.</p>
+
+          <dl class="contact__list">
+            <div class="contact__row">
+              <dt>E-mail</dt>
+              <dd>
+                <a href="mailto:info@kardea.cz">info@kardea.cz</a>
+                <span>Odpovíme do jednoho pracovního dne</span>
+              </dd>
+            </div>
+            <div class="contact__row">
+              <dt>Adresa</dt>
+              <dd>
+                Zdeňka Chalabaly 3041/2
+                <span>700 30 Ostrava-jih – Bělský Les</span>
+              </dd>
+            </div>
+          </dl>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ordinační doba vedle mapy — díky tomu může fotka výše dosednout na hranu -->
+  <div class="infoband">
+    <div class="infoband__hours">
+      <div class="contact__hours">
+        <div class="hours">
+          <h3>Ordinační doba</h3>
+          <div class="hours__row"><span class="d">Pondělí</span><span class="t">6.00 – 11.00 &nbsp; 12.30 – 14.00</span></div>
+          <div class="hours__row"><span class="d">Úterý</span><span class="t">6.00 – 11.00 &nbsp; 12.30 – 14.00</span></div>
+          <div class="hours__row"><span class="d">Středa</span><span class="t">6.00 – 11.00 &nbsp; 12.30 – 14.00</span></div>
+          <div class="hours__row"><span class="d">Čtvrtek</span><span class="t">6.00 – 11.00 &nbsp; 12.30 – 14.00</span></div>
+          <div class="hours__row"><span class="d">Pátek</span><span class="t">6.00 – 12.00 &nbsp; 12.30 – 13.30</span></div>
+        </div>
+        <div class="hours">
+          <h3>Pracovní doba</h3>
+          <div class="hours__row"><span class="d">Pondělí – čtvrtek</span><span class="t">6.00 – 15.00</span></div>
+          <div class="hours__row"><span class="d">Pátek</span><span class="t">6.00 – 14.00</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="infoband__map">
+    <iframe src="https://maps.google.com/maps?q=Zde%C5%88ka%20Chalabaly%203041%2F2%2C%20700%2030%20Ostrava-jih%20-%20B%C4%9Blsk%C3%BD%20Les&t=&z=17&ie=UTF8&iwloc=B&output=embed"
+            title="Mapa — ambulance Kardea, Zdeňka Chalabaly 3041/2, Ostrava-jih – Bělský Les"
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <!-- ===================================================== CTA PÁS ===== -->
+  <section class="section band-yellow cta">
+    <div class="shell">
+      <h2 class="h-xl reveal">Nečekejte na varovné signály</h2>
+      <p class="reveal">
+        Objednejte se na odborné vyšetření srdce. Stačí jeden telefonát —
+        termín domluvíme hned.
+      </p>
+      <div class="cta__actions reveal">
+        <a class="btn btn--ink" href="tel:+420606727444">
+          Zavolat +420 606 727 444
+          <svg class="btn__arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn--ghost" href="#predpis">Požádat o předpis léku</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ====================================================== PATIČKA ===== -->
+<footer class="footer">
+  <div class="shell">
+    <div class="footer__grid">
+      <div>
+        <img class="footer__logo" src="assets/logo.webp" alt="Kardea" width="132" />
+        <p>Kardiologická ambulance MUDr. Jana Pavlase.<br />Spolehlivá kardiologie Ostrava — bez čekání, s lidským přístupem.</p>
+      </div>
+      <div>
+        <h4>Ambulance</h4>
+        <ul>
+          <li><a href="#lekar">Lékař</a></li>
+          <li><a href="#sluzby">Služby</a></li>
+          <li><a href="#prubeh">Jak to probíhá</a></li>
+          <li><a href="#faq">Časté dotazy</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Pacientům</h4>
+        <ul>
+          <li><a href="#predpis">Předpis léku</a></li>
+          <li><a href="#kontakt">Ordinační doba</a></li>
+          <li><a href="#kontakt">Objednat vyšetření</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <ul>
+          <li><a href="tel:+420606727444">+420 606 727 444</a></li>
+          <li><a href="mailto:info@kardea.cz">info@kardea.cz</a></li>
+          <li>Zdeňka Chalabaly 3041/2<br />700 30 Ostrava-jih – Bělský Les</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>© <span id="year">2026</span> Kardea — MUDr. Jan Pavlas</p>
+      <p>Kardiologie Ostrava</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ======================================== MOBILNÍ LIŠTA S AKCÍ ===== -->
+<div class="mobile-bar">
+  <a class="btn btn--primary" href="tel:+420606727444">Zavolat</a>
+  <a class="btn btn--ghost" href="#predpis">Předpis léku</a>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalClinic",
+  "name": "Kardea — kardiologická ambulance MUDr. Jan Pavlas",
+  "medicalSpecialty": "Cardiovascular",
+  "telephone": "+420606727444",
+  "email": "info@kardea.cz",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Zdeňka Chalabaly 3041/2",
+    "addressLocality": "Ostrava-jih – Bělský Les",
+    "postalCode": "70030",
+    "addressCountry": "CZ"
+  },
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday"], "opens": "06:00", "closes": "11:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday"], "opens": "12:30", "closes": "14:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "06:00", "closes": "12:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "12:30", "closes": "13:30" }
+  ]
+}
+</script>
+
+<script src="js/main.js"></script>
+</body>
+</html>
