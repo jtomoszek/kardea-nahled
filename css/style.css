@@ -19,6 +19,7 @@
 
   --paper: #e7e7e7;          /* základní plocha webu */
   --paper-2: #f2f2f2;        /* karty */
+  --paper-3: #d6d3d4;        /* tmavší pásmo — služby, předpis léku, kontakt */
   --white: #ffffff;
 
   /* barva teček v úvodní sekci — stejnou hodnotu má konstanta COLOR v js/main.js */
@@ -418,10 +419,9 @@ section[id], main[id] { scroll-margin-top: clamp(88px, 11vw, 118px); }
 .statement.band-yellow .eyebrow { color: rgba(19, 19, 16, .7); }
 .statement.band-yellow .eyebrow::before { background: var(--ink); }
 .statement.band-yellow .statement__quote { color: var(--ink); }
-/* zvýraznění nemůže být barvou — žlutá na žluté zmizí a bílý text by neměl kontrast */
 .statement.band-yellow .statement__quote .hl {
   color: inherit;
-  box-shadow: inset 0 -.11em 0 rgba(255, 255, 255, .9);
+  box-shadow: inset 0 -.09em 0 currentColor;   /* podtržení v barvě textu */
 }
 .statement.band-yellow .statement__rule { background: rgba(19, 19, 16, .22); }
 .statement.band-yellow .stat__num { color: var(--ink); }
@@ -432,6 +432,18 @@ section[id], main[id] { scroll-margin-top: clamp(88px, 11vw, 118px); }
 .stat__num { font-size: clamp(2.4rem, 4.2vw, 3.7rem); font-weight: 200; line-height: 1; letter-spacing: -.04em; color: var(--yellow); }
 .stat__num sup { font-size: .32em; font-weight: 400; vertical-align: super; margin-left: 2px; }
 .stat__label { font-size: .88rem; color: rgba(236, 234, 228, .6); line-height: 1.5; max-width: 22em; }
+
+/* ============ pozadí jednotlivých sekcí ===== */
+.stack { position: relative; }
+
+/* odstíny jsou uvedené výslovně, ne střídáním — nezávisí to pak na pořadí sekcí */
+#lekar   { background: var(--paper); }
+#sluzby  { background: var(--paper-3); }
+/* „Proč Kardea" a „Jak to probíhá" mají splynout v jeden blok —
+   stejný odstín a mezi nimi jen jedna mezera místo dvou */
+#proc    { background: var(--paper); padding-bottom: 0; }
+#prubeh  { background: var(--paper); }
+#predpis { background: var(--paper-3); }
 
 /* ================== SLUŽBY — ukotvený úvod + skládané karty ===== */
 /* horizont, na kterém se karty zastavují (pod plovoucí navigací) */
@@ -553,26 +565,6 @@ section[id], main[id] { scroll-margin-top: clamp(88px, 11vw, 118px); }
   margin-bottom: 0;
 }
 
-/* ---------- podpis: dopisuje se přes fotku, pak zmizí ---------- */
-.doctor__sign {
-  position: absolute;
-  z-index: 2;
-  /* posazeno na tmavý oděv — bílý podpis tam má nejlepší kontrast */
-  right: calc(26% - 20px);
-  bottom: 6%;
-  width: clamp(62px, 16%, 98px);
-  pointer-events: none;
-}
-.doctor__sign .sign {
-  display: block;
-  width: 100%;
-  height: auto;
-  filter: drop-shadow(0 3px 12px rgba(19, 19, 16, .5));
-}
-
-/* bílá plocha oříznutá tvarem podpisu — staticky, bez animace */
-.sign__ink { opacity: 1; }
-
 /* ---------- jmenovka ---------- */
 .doctor__tag {
   position: absolute;
@@ -669,7 +661,7 @@ section[id], main[id] { scroll-margin-top: clamp(88px, 11vw, 118px); }
 /* -------------------------------------------------------------- kontakt */
 .contact__head { margin-bottom: clamp(40px, 5vw, 64px); max-width: 34em; }
 /* ---------- sestra dosedá na hranu, kontakty dominují ---------- */
-.contact { background: #d6d3d4; padding-bottom: 0; }
+.contact { background: var(--paper-3); padding-bottom: 0; }
 
 .contact__grid {
   display: grid;
