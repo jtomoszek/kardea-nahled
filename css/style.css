@@ -323,6 +323,24 @@ section[id], main[id] { scroll-margin-top: clamp(88px, 11vw, 118px); }
 .trust__item .t { font-weight: 600; font-size: .96rem; line-height: 1.3; margin-bottom: 3px; }
 .trust__item .s { font-size: .86rem; color: var(--muted); line-height: 1.45; }
 
+/* dlaždice s adresou vede na mapu dole na stránce */
+.trust__item--link { transition: background-color .25s var(--ease); }
+.trust__item--link:hover { background: var(--white); }
+.trust__item--link:hover .mark { background: var(--yellow); border-color: var(--yellow); color: var(--ink); }
+.trust__item .mark { transition: background-color .25s var(--ease), border-color .25s var(--ease), color .25s var(--ease); }
+
+.trust__more {
+  display: inline-flex; align-items: center; gap: 7px;
+  margin-top: 9px;
+  font-size: .8rem; font-weight: 600; letter-spacing: .02em;
+  color: var(--yellow-dark);
+}
+.trust__more svg { transition: transform .25s var(--ease); }
+.trust__item--link:hover .trust__more svg { transform: translateX(3px); }
+
+/* kotva nesmí skončit pod plovoucí navigací */
+#mapa { scroll-margin-top: clamp(88px, 11vw, 118px); }
+
 /* ======================================================= SRDCE (SVG) ===== */
 .heartviz { position: relative; width: 100%; max-width: 780px; margin-inline: auto; }
 .heartviz svg { width: 100%; height: auto; overflow: visible; }

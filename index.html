@@ -7,7 +7,7 @@
 <title>Kardiologie Ostrava bez čekání | MUDr. Jan Pavlas</title>
 <meta name="description" content="Kardiologie Ostrava MUDr. Jan Pavlas – odborné vyšetření srdce, EKG, Holter i echo bez dlouhého čekání. Objednejte se do ambulance Kardea." />
 <!-- NÁHLED PRO KLIENTA — nesmí se indexovat, aby nevznikla duplicita s živým webem.
-     Na ostré doméně tento řádek nahraďte za: <meta name="robots" content="index, follow" /> -->
+     Na ostré doméně nahradit za index, follow -->
 <meta name="robots" content="noindex, nofollow" />
 
 <!-- TODO: po nasazení doplnit finální doménu -->
@@ -238,13 +238,16 @@
           <div class="s">EKG, Holter i echokardiografie na jednom místě.</div>
         </div>
       </div>
-      <div class="trust__item">
+      <a class="trust__item trust__item--link" href="#mapa">
         <span class="mark"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
         <div>
           <div class="t">Ostrava-jih – Bělský Les</div>
           <div class="s">Zdeňka Chalabaly 3041/2, Ostrava-jih – Bělský Les.</div>
+          <span class="trust__more">Zobrazit na mapě
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </span>
         </div>
-      </div>
+      </a>
     </div>
   </section>
 
@@ -696,7 +699,7 @@
   </section>
 
   <!-- ordinační doba vedle mapy — díky tomu může fotka výše dosednout na hranu -->
-  <div class="infoband">
+  <div class="infoband" id="mapa">
     <div class="infoband__hours">
       <div class="contact__hours">
         <div class="hours">
