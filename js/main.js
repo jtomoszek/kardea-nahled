@@ -63,6 +63,10 @@
   var form = document.getElementById('rxForm');
 
   if (form) {
+    // datum narození nemůže být v budoucnu
+    var bday = document.getElementById('rxDate');
+    if (bday) bday.max = new Date().toISOString().slice(0, 10);
+
     var status = document.getElementById('rxStatus');
     var consentWrap = document.getElementById('rxConsentWrap');
 
@@ -158,7 +162,7 @@
       var subject = 'Žádost o předpis léku — ' + data.jmeno;
       var body = [
         'Jméno a příjmení: ' + data.jmeno,
-        'Datum: ' + data.datum,
+        'Datum narození: ' + data.datum,
         'Telefon: ' + data.telefon,
         'E-mail: ' + data.email,
         'Název léku: ' + data.lek,
