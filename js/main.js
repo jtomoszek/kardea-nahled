@@ -125,11 +125,14 @@
       }
 
       var data = {
-        jmeno: form.elements.jmeno.value.trim(),
-        datum: form.elements.datum.value,
-        telefon: form.elements.telefon.value.trim(),
-        email: form.elements.email.value.trim(),
-        lek: form.elements.lek.value.trim()
+        _subject: 'Žádost o předpis léku — ' + form.elements.jmeno.value.trim(),
+        _honey: form.elements._honey ? form.elements._honey.value : '',
+        'Jméno a příjmení': form.elements.jmeno.value.trim(),
+        'Datum narození': form.elements.datum.value,
+        'Telefon': form.elements.telefon.value.trim(),
+        'E-mail': form.elements.email.value.trim(),
+        'Název léku': form.elements.lek.value.trim(),
+        'Souhlas se zpracováním': 'ano'
       };
 
       var endpoint = (form.dataset.endpoint || '').trim();
@@ -145,8 +148,10 @@
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(data)
         })
-          .then(function (r) {
-            if (!r.ok) throw new Error('HTTP ' + r.status);
+          .then(function (r) { return r.json().catch(function () { return {}; }); })
+          .then(function (res) {
+            // služba vrací úspěch i v těle odpovědi, samotný stav 200 nestačí
+            if (res.success === false || res.success === 'false') throw new Error(res.message || 'odmítnuto');
             setStatus('ok', 'Žádost jsme přijali. Ozveme se vám zpravidla do jednoho pracovního dne.');
             form.reset();
           })
@@ -158,22 +163,8 @@
         return;
       }
 
-      // B) backend zatím není → otevři předvyplněný e-mail
-      var subject = 'Žádost o předpis léku — ' + data.jmeno;
-      var body = [
-        'Jméno a příjmení: ' + data.jmeno,
-        'Datum narození: ' + data.datum,
-        'Telefon: ' + data.telefon,
-        'E-mail: ' + data.email,
-        'Název léku: ' + data.lek,
-        '',
-        'Souhlasím se zpracováním uvedených údajů za účelem vystavení receptu.'
-      ].join('\n');
-
-      window.location.href = 'mailto:info@kardea.cz?subject=' +
-        encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-
-      setStatus('ok', 'Otevřeli jsme vám předvyplněný e-mail — odešlete jej prosím ze svého poštovního programu.');
+      // bez nastaveného endpointu nemá formulář kam odeslat
+      setStatus('err', 'Formulář není nastavený. Zavolejte nám prosím na 606 727 444.');
     });
   }
 

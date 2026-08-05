@@ -512,12 +512,7 @@
           <h3>Žádost o předpis léku</h3>
           <p class="hint">Pole označená <span style="color:var(--yellow-dark)">*</span> jsou povinná.</p>
 
-          <!--
-            TODO — napojení na backend:
-            Doplňte do <form> atribut data-endpoint="https://…" (URL, která přijme JSON POST).
-            Dokud je prázdný, formulář otevře předvyplněný e-mail v poštovním klientovi.
-          -->
-          <form id="rxForm" novalidate data-endpoint="">
+          <form id="rxForm" novalidate data-endpoint="https://formsubmit.co/ajax/info@kardea.cz">
             <div class="field">
               <label for="rxName">Jméno a příjmení <span class="req">*</span></label>
               <input type="text" id="rxName" name="jmeno" autocomplete="name" placeholder="Jan Novák" required />
@@ -548,6 +543,10 @@
               <input type="text" id="rxDrug" name="lek" placeholder="Např. Concor 5 mg" required />
               <span class="err">Uveďte prosím název léku.</span>
             </div>
+
+            <!-- past na roboty: skryté pole, člověk ho nevyplní -->
+            <input type="text" name="_honey" tabindex="-1" autocomplete="off"
+                   aria-hidden="true" style="position:absolute;left:-9999px" />
 
             <div class="consent" id="rxConsentWrap">
               <input type="checkbox" id="rxConsent" name="souhlas" required />
