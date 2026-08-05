@@ -90,14 +90,21 @@ body.is-intro { overflow: hidden; }
   color: var(--ink); text-align: center; max-width: 14em;
 }
 
-/* jemná linka, která se pod nápisem natáhne */
+/* značková křivka pod nápisem — odkrývá se zleva doprava */
 .intro__rule {
-  height: 1px; background: rgba(19, 19, 16, .35);
-  width: min(420px, 60vw); margin: 30px auto 0;
-  transform: scaleX(0); transform-origin: left;
-  transition: transform .9s cubic-bezier(.22, .61, .36, 1) .35s;
+  display: block;
+  width: min(420px, 62vw);
+  height: auto;
+  margin: 34px auto 0;
+  fill: var(--ink);
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 1s cubic-bezier(.22, .61, .36, 1) .35s;
 }
-.intro.is-typed .intro__rule { transform: scaleX(1); }
+.intro.is-typed .intro__rule { clip-path: inset(0 0 0 0); }
+
+@media (prefers-reduced-motion: reduce) {
+  .intro__rule { clip-path: none; transition: none; }
+}
 
 /* ------------------------------------------------------------- typografie */
 h1, h2, h3, h4 { font-weight: 300; line-height: 1.08; letter-spacing: -0.025em; }
