@@ -120,6 +120,14 @@ h1, h2, h3, h4 { font-weight: 300; line-height: 1.08; letter-spacing: -0.025em; 
 .split.is-revealed .ch {
   animation: chIn .52s cubic-bezier(.22, .61, .36, 1) both;
 }
+/* po doběhnutí filtr úplně sundáme — na mobilu jinak občas zůstane
+   rozmazané písmeno kvůli tomu, jak prohlížeč skládá vrstvy */
+.split.is-done .ch {
+  animation: none;
+  opacity: 1;
+  filter: none;
+  transform: none;
+}
 @keyframes chIn {
   from { opacity: 0; filter: blur(7px); transform: translateY(5px); }
   to   { opacity: 1; filter: blur(0);   transform: translateY(0); }
@@ -623,10 +631,18 @@ section[id], main[id] { scroll-margin-top: clamp(88px, 11vw, 118px); }
 .field label { display: block; font-size: .8rem; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
 .field .req { color: var(--yellow-dark); }
 .field input {
-  width: 100%; padding: 15px 18px;
+  width: 100%; height: 58px; padding: 0 18px;
   border: 1px solid var(--line); border-radius: 14px;
-  background: var(--white); font: inherit; font-size: .97rem; color: var(--ink);
+  background: var(--white); font: inherit; font-size: .97rem; line-height: 1.5; color: var(--ink);
   transition: border-color .25s var(--ease), box-shadow .25s var(--ease);
+}
+/* iOS nectí width u data a pole přetékalo z karty */
+.field input[type="date"] {
+  -webkit-appearance: none;
+  appearance: none;
+  min-width: 0;
+  max-width: 100%;
+  display: block;
 }
 .field input::placeholder { color: var(--muted-light); }
 .field input:focus { outline: none; border-color: var(--yellow-dark); box-shadow: 0 0 0 4px rgba(241, 203, 69, .25); }

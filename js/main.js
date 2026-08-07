@@ -244,6 +244,10 @@
 
         if (el.classList.contains('split')) {
           el.classList.add('is-revealed');
+          // až animace doběhne, sundat filtry docela — jinak na mobilu
+          // občas zůstane písmeno rozmazané
+          var pocet = el.querySelectorAll('.ch').length;
+          setTimeout(function () { el.classList.add('is-done'); }, pocet * STEP + 700);
         } else {
           var sibs = el.parentElement ? Array.prototype.indexOf.call(el.parentElement.children, el) : 0;
           el.style.transitionDelay = Math.min(sibs, 5) * 70 + 'ms';
