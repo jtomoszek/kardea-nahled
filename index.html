@@ -19,6 +19,8 @@
 <link rel="icon" href="assets/favicon-32.webp" sizes="32x32" />
 <link rel="apple-touch-icon" href="assets/favicon-192.webp" />
 
+<!-- srdce v úvodní sekci je největší vykreslený prvek — ať ho prohlížeč najde hned -->
+<link rel="preload" as="image" href="assets/heart.webp" fetchpriority="high" />
 <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -307,7 +309,7 @@
         <figure class="doctor__stage reveal">
           <span class="doctor__ring" aria-hidden="true"></span>
           <img class="doctor__cutout" src="assets/doctor-cutout.webp"
-               alt="MUDr. Jan Pavlas, kardiolog ambulance Kardea" width="1708" height="1434" />
+               alt="MUDr. Jan Pavlas, kardiolog ambulance Kardea" width="1708" height="1434" loading="lazy" decoding="async" />
 
 
           <figcaption class="doctor__tag">
@@ -654,8 +656,8 @@
 
         <!-- sestra dosedá na spodní hranu sekce, stejně jako lékař výše -->
         <figure class="contact__person">
-          <img src="assets/nurse.webp" width="1172" height="1444"
-               alt="Monika Vrbková, zdravotní sestra ambulance Kardea" />
+          <img src="assets/nurse.webp" width="1120" height="1380"
+               alt="Monika Vrbková, zdravotní sestra ambulance Kardea" loading="lazy" decoding="async" />
           <figcaption class="contact__tag">
             <span class="n">Monika Vrbková</span>
             <span class="r">Zdravotní sestra</span>
