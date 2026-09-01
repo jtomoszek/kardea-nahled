@@ -1,15 +1,9 @@
-# Kardea — náhled webu
+# Kardea — kardiologická ambulance MUDr. Jana Pavlase
 
-Náhled připravované webové prezentace kardiologické ambulance MUDr. Jana Pavlase.
+Živý web: **https://kardea.cz**
 
-**Živý náhled:** https://jtomoszek.github.io/kardea-nahled/
-
-## K čemu tento repozitář slouží
-
-Slouží výhradně k odsouhlasení návrhu klientem. Není to ostrý web ambulance.
-
-Stránka je označená `noindex, nofollow`, takže ji vyhledávače nezaindexují a nevznikne
-duplicita s živým webem ordinace.
+Tenhle repozitář je zdrojem toho webu. Co je ve větvi `main`, to je na kardea.cz —
+GitHub Pages ho nasadí do minuty po pushnutí. Není to náhled ani kopie.
 
 ## Obsah
 
@@ -19,20 +13,39 @@ Statický web bez závislostí a bez build kroku.
 index.html      jediná stránka
 css/style.css   design systém
 js/main.js      interakce
-assets/         obrázky, logo, podpis
+assets/         logo, fotky, favicony
 fonts/          Plus Jakarta Sans (hostováno lokálně)
+CNAME           doména kardea.cz — nemazat
+robots.txt      pro vyhledávače
+sitemap.xml     mapa webu
 ```
 
-Web nevolá žádnou externí službu ani analytiku. Jediný požadavek mimo tuto doménu
-je vložená mapa Google Maps v sekci Kontakt.
+## Jak dělat úpravy
 
-## Před nasazením na ostrou doménu
+Repozitář je nastavený pro práci s Claude Code. Pravidla, ověřené údaje ambulance
+a seznam věcí, na které se nesmí sahat, jsou v [CLAUDE.md](CLAUDE.md) — Claude si
+je načte sám.
 
-1. **Indexace** — v `index.html` vrátit `<meta name="robots" content="index, follow" />`.
-2. **Kanonická adresa** — doplnit `<link rel="canonical">` a `og:url` s finální doménou
-   (v `<head>` je připravený zakomentovaný řádek).
-3. **Formulář „Žádost o předpis léku"** — zatím nemá backend a otevírá předvyplněný e-mail.
-   Po doplnění atributu `data-endpoint` u `<form id="rxForm">` začne odesílat JSON přes `POST`.
-4. **Ochrana osobních údajů** — žádost o předpis obsahuje zdravotní údaje. Před zveřejněním
-   formuláře je potřeba endpoint na HTTPS, bezpečné uložení a ošetření podle GDPR.
-   Nespoléhat na nešifrovaný e-mail.
+```bash
+git clone https://github.com/jtomoszek/kardea-nahled.git
+```
+
+Pak ve staženém adresáři spusťte `claude` a řekněte, co se má změnit.
+
+## Vrácení změny
+
+Každá úprava je samostatný commit, takže jde vrátit zvlášť:
+
+```bash
+git revert HEAD && git push
+```
+
+## Co běží mimo tenhle repozitář
+
+| | |
+|---|---|
+| Doména a DNS | Active24 |
+| Hosting | GitHub Pages |
+| Měření návštěvnosti | Cloudflare Web Analytics |
+| Formulář na předpis léku | FormSubmit → info@kardea.cz |
+| Zdrojové soubory a archiv | soukromý repozitář `jtomoszek/kardea` |
